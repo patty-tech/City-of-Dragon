@@ -1,0 +1,6 @@
+window.SaveSystem = {
+  key:'dragonRealmStableWebV1',
+  load(){try{return JSON.parse(localStorage.getItem(this.key))}catch{return null}},
+  save(state){localStorage.setItem(this.key,JSON.stringify(state))},
+  clear(){localStorage.removeItem(this.key)}
+};
