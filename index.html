@@ -10,48 +10,47 @@
 <body>
   <div id="app">
     <header class="topbar">
-      <div class="brand">
-        <div class="crest" aria-hidden="true">DR</div>
-        <div><h1>Dragon Realm</h1><p>Emberfall Isle</p></div>
-      </div>
-      <div class="resources" aria-label="Resources">
-        <div><span>Gold</span><strong id="goldValue">0</strong></div>
-        <div><span>Food</span><strong id="foodValue">0</strong></div>
-        <div><span>Gems</span><strong id="gemsValue">0</strong></div>
-      </div>
+      <div class="brand"><div class="crest">DR</div><div><h1>Dragon Realm</h1><p>Emberfall Isle</p></div></div>
+      <div class="resources"><div><span>Gold</span><strong id="goldValue">0</strong></div><div><span>Food</span><strong id="foodValue">0</strong></div><div><span>Gems</span><strong id="gemsValue">0</strong></div></div>
     </header>
 
     <main class="layout">
       <section class="panel island-panel">
-        <div class="panel-head">
-          <div><p class="eyebrow">Stable Web v1</p><h2>Your Island</h2></div>
-          <div class="level-box"><span>Realm Lv.</span><strong id="levelValue">1</strong></div>
-        </div>
+        <div class="panel-head"><div><p class="eyebrow">Web v2</p><h2>Your Island</h2></div><div class="level-box"><span>Realm Lv.</span><strong id="levelValue">1</strong></div></div>
         <div class="xp-wrap"><div id="xpBar" class="xp-bar"></div></div>
         <div class="xp-label"><span id="xpValue">0</span> / <span id="xpNeed">100</span> XP</div>
-
-        <div id="islandGrid" class="island-grid" aria-label="Island building grid"></div>
-
-        <div class="actions-row">
-          <button id="collectGoldBtn" class="primary">Collect Gold</button>
-          <button id="harvestBtn">Harvest Farms</button>
-          <button id="resetBtn" class="danger">Reset Save</button>
-        </div>
-        <p id="statusMessage" class="status" aria-live="polite"></p>
+        <div id="islandGrid" class="island-grid"></div>
+        <div class="actions-row"><button id="collectGoldBtn" class="primary">Collect Gold</button><button id="harvestBtn">Harvest Farms</button><button id="resetBtn" class="danger">Reset Save</button></div>
+        <p id="statusMessage" class="status"></p>
       </section>
 
       <aside class="side-column">
-        <section class="panel">
-          <div class="panel-head"><div><p class="eyebrow">Construction</p><h2>Build</h2></div></div>
-          <div id="buildMenu" class="build-menu"></div>
-          <p class="hint">Choose a building, then click an empty island tile.</p>
-        </section>
-
-        <section class="panel">
-          <div class="panel-head"><div><p class="eyebrow">Collection</p><h2>Dragons</h2></div><span id="dragonCount" class="badge">0</span></div>
-          <div id="dragonList" class="dragon-list"></div>
-        </section>
+        <section class="panel"><div class="panel-head"><div><p class="eyebrow">Construction</p><h2>Build</h2></div></div><div id="buildMenu" class="build-menu"></div><p class="hint">Choose a building, then click an empty island tile.</p></section>
+        <section class="panel"><div class="panel-head"><div><p class="eyebrow">Collection</p><h2>Dragons</h2></div><span id="dragonCount" class="badge">0</span></div><div id="dragonList" class="dragon-list"></div></section>
       </aside>
+
+      <section class="panel feature-panel">
+        <div class="panel-head"><div><p class="eyebrow">Hatchery</p><h2>Eggs</h2></div><span id="eggCount" class="badge">0</span></div>
+        <div class="actions-row"><button id="buyEggBtn">Buy Mystery Egg · 120 Gold</button><button id="hatchBtn" class="primary">Hatch Next Egg</button></div>
+        <div id="eggList" class="mini-list"></div>
+      </section>
+
+      <section class="panel feature-panel">
+        <div class="panel-head"><div><p class="eyebrow">Breeding Cave</p><h2>Breed Dragons</h2></div></div>
+        <div class="form-row"><select id="breedA"></select><select id="breedB"></select><button id="breedBtn" class="primary">Breed · 5 Gems</button></div>
+        <p class="hint">Certain pairs can create rare hybrid dragons.</p>
+      </section>
+
+      <section class="panel feature-panel">
+        <div class="panel-head"><div><p class="eyebrow">Battle Arena</p><h2>Quick Battle</h2></div></div>
+        <div id="battlePreview" class="battle-preview"></div>
+        <button id="battleBtn" class="primary full">Enter Arena</button>
+      </section>
+
+      <section class="panel feature-panel">
+        <div class="panel-head"><div><p class="eyebrow">Progress</p><h2>Quests</h2></div></div>
+        <div id="questList" class="quest-list"></div>
+      </section>
     </main>
   </div>
 
