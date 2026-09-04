@@ -16,29 +16,40 @@
 
     <main class="layout">
       <section class="panel island-panel">
-        <div class="panel-head"><div><p class="eyebrow">Web v2</p><h2>Your Island</h2></div><div class="level-box"><span>Realm Lv.</span><strong id="levelValue">1</strong></div></div>
+        <div class="panel-head"><div><p class="eyebrow">Interactive Web v3</p><h2>Your Island</h2></div><div class="level-box"><span>Realm Lv.</span><strong id="levelValue">1</strong></div></div>
         <div class="xp-wrap"><div id="xpBar" class="xp-bar"></div></div>
         <div class="xp-label"><span id="xpValue">0</span> / <span id="xpNeed">100</span> XP</div>
-        <div id="islandGrid" class="island-grid"></div>
-        <div class="actions-row"><button id="collectGoldBtn" class="primary">Collect Gold</button><button id="harvestBtn">Harvest Farms</button><button id="resetBtn" class="danger">Reset Save</button></div>
-        <p id="statusMessage" class="status"></p>
+
+        <div class="island-toolbar">
+          <button id="zoomOutBtn" aria-label="Zoom out">−</button>
+          <span id="zoomLabel">100%</span>
+          <button id="zoomInBtn" aria-label="Zoom in">＋</button>
+          <button id="moveModeBtn">Move Buildings</button>
+        </div>
+
+        <div id="islandViewport" class="island-viewport">
+          <div id="islandGrid" class="island-grid"></div>
+        </div>
+
+        <div class="actions-row"><button id="collectGoldBtn" class="primary">Collect Ready Gold</button><button id="harvestBtn">Harvest Ready Farms</button><button id="resetBtn" class="danger">Reset Save</button></div>
+        <p id="statusMessage" class="status" aria-live="polite"></p>
       </section>
 
       <aside class="side-column">
-        <section class="panel"><div class="panel-head"><div><p class="eyebrow">Construction</p><h2>Build</h2></div></div><div id="buildMenu" class="build-menu"></div><p class="hint">Choose a building, then click an empty island tile.</p></section>
+        <section class="panel"><div class="panel-head"><div><p class="eyebrow">Construction</p><h2>Build</h2></div></div><div id="buildMenu" class="build-menu"></div><p class="hint">Choose a building, then tap an empty island plot.</p></section>
         <section class="panel"><div class="panel-head"><div><p class="eyebrow">Collection</p><h2>Dragons</h2></div><span id="dragonCount" class="badge">0</span></div><div id="dragonList" class="dragon-list"></div></section>
       </aside>
 
       <section class="panel feature-panel">
         <div class="panel-head"><div><p class="eyebrow">Hatchery</p><h2>Eggs</h2></div><span id="eggCount" class="badge">0</span></div>
-        <div class="actions-row"><button id="buyEggBtn">Buy Mystery Egg · 120 Gold</button><button id="hatchBtn" class="primary">Hatch Next Egg</button></div>
+        <div class="actions-row"><button id="buyEggBtn">Buy Mystery Egg · 120 Gold</button><button id="hatchBtn" class="primary">Start / Claim Hatch</button></div>
         <div id="eggList" class="mini-list"></div>
       </section>
 
       <section class="panel feature-panel">
         <div class="panel-head"><div><p class="eyebrow">Breeding Cave</p><h2>Breed Dragons</h2></div></div>
         <div class="form-row"><select id="breedA"></select><select id="breedB"></select><button id="breedBtn" class="primary">Breed · 5 Gems</button></div>
-        <p class="hint">Certain pairs can create rare hybrid dragons.</p>
+        <p class="hint">Choose two different dragons. Hybrids depend on the pairing.</p>
       </section>
 
       <section class="panel feature-panel">
@@ -53,6 +64,12 @@
       </section>
     </main>
   </div>
+
+  <dialog id="objectDialog" class="object-dialog">
+    <div class="dialog-head"><div><p class="eyebrow">Island Object</p><h2 id="dialogTitle">Building</h2></div><button id="dialogCloseBtn" aria-label="Close">×</button></div>
+    <div id="dialogBody"></div>
+    <div id="dialogActions" class="actions-row"></div>
+  </dialog>
 
   <script src="js/dragons.js"></script>
   <script src="js/save.js"></script>
